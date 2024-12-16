@@ -22,4 +22,6 @@ galaxy_info:
     - fpm
     - composer
 dependencies:
-  - { role: hba.nginx }
+  - name: hba.nginx
+    src: https://github.com/hba/ansible-role-nginx.git
+    scm: git

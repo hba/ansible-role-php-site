@@ -1,0 +1,12 @@
+---
+- name: Install Build Dependencies
+  ansible.builtin.dnf:
+    name: "{{ php_apt_dependencies }}"
+    state: present
+  become: true
+
+- name: Install Git
+  ansible.builtin.dnf:
+    name: git
+    state: present
+  become: true

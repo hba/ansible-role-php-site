@@ -1,9 +1,4 @@
 ---
-- name: Install Build Dependencies
-  apt:
-    name: "{{ php_apt_dependencies }}"
-    state: present
-  become: yes
 
 - name: Copy Phpenv Definition
   template: src=phpenv_definition.j2 dest=/tmp/{{ php_version }}

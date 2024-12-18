@@ -1,0 +1,10 @@
+---
+- name: Install Build Dependencies
+  apt:
+    name: "{{ php_apt_dependencies }}"
+    state: present
+  become: yes
+
+- name: Install Git
+  apt: name=git state=present
+  become: yes

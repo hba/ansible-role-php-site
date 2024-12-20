@@ -1,6 +1,13 @@
 ---
 
+- name: Create Phpenv group
+  become: true
+  ansible.builtin.group:
+    name: web-admin
+    state: present
+
 - name: Create Phpenv Directory
+  become: true
   file:
     path: "{{ phpenv_root }}"
     state: directory
@@ -10,6 +17,7 @@
   become: yes
 
 - name: Allow Web Admins to Write Phpenv Directory
+  become: true
   acl:
     name: "{{ phpenv_root }}"
     etype: group
@@ -19,6 +27,7 @@
   become: yes
 
 - name: Allow Web Admins Write to Future Directories in Phpenv
+  become: true
   acl:
     name: "{{ phpenv_root }}"
     etype: group
@@ -29,6 +38,7 @@
   become: yes
 
 - name: Set ACL Mask for Phpenv
+  become: true
   acl:
     name: "{{ phpenv_root }}"
     etype: mask
